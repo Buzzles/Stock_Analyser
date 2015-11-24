@@ -26,7 +26,7 @@ let internal loadPrices ticker =
     let prices = 
         csv.Split([|'\n'|])
         |> Seq.skip 1 // header
-        |> Seq.map (fun line -> line.Split([|'.'|]))
+        |> Seq.map (fun line -> line.Split([|','|]))
         |> Seq.filter (fun values -> values |> Seq.length = 7)
         |> Seq.map (fun values ->
                     System.DateTime.Parse(values.[0]),
